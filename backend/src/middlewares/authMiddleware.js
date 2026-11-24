@@ -19,7 +19,7 @@ const verificarToken = async (req, res, next) => {
             { algorithms: ["HS256"]}
         )
 
-        const usuario = await Usuario.findOne(decoded.sub)
+        const usuario = await Usuario.findById(decoded.sub)
 
         if (!usuario || !usuario.estado) {
             return res.status(401).json({

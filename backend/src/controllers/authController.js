@@ -116,7 +116,22 @@ const iniciarSesion = async (req, res) => {
     }
 }
 
+const obtenerPerfil = async (req, res) => {
+
+    res.json({
+        mensaje:"Perfil obtenido correctamente",
+        usuario:{
+            id: req.usuario._id,
+            nombre: req.usuario.nombre,
+            correo: req.usuario.correo,
+            rol: req.usuario.rol,
+            estado: req.usuario.estado
+        }
+    })
+}
+
 export {
     registrarUsuario,
-    iniciarSesion
+    iniciarSesion,
+    obtenerPerfil
 };
